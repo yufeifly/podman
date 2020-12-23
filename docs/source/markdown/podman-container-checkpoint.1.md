@@ -52,11 +52,23 @@ exported to a tar.gz file it is possible with the help of **--ignore-rootfs**
 to explicitly disable including changes to the root file-system into
 the checkpoint archive file.
 
+#### **--pre-checkpoint**, **-P**
+
+Dump container's memory information only, leave the container running after this. Later
+operations will override the previous ones. It means a contaniner only has one pre-dump images.
+
+#### **--with-previous**
+
+This only works without **--pre-checkpoint**. It will checkout the container with previous criu image files in pre-dump.
 ## EXAMPLE
 
 podman container checkpoint mywebserver
 
 podman container checkpoint 860a4b23
+
+podman container checkpoint -P -e pre-checkpoint.tar.gz -l
+
+podman container checkpoint --with-previous -e checkpoint.tar.gz -l
 
 ## SEE ALSO
 podman(1), podman-container-restore(1)

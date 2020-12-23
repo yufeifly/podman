@@ -176,6 +176,8 @@ type CheckpointOptions struct {
 	Latest         bool
 	LeaveRunning   bool
 	TCPEstablished bool
+	PreCheckPoint  bool
+	WithPrevious   bool
 }
 
 type CheckpointReport struct {
@@ -193,6 +195,7 @@ type RestoreOptions struct {
 	Latest          bool
 	Name            string
 	TCPEstablished  bool
+	ImportPrevious  string
 }
 
 type RestoreReport struct {

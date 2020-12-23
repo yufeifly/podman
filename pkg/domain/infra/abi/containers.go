@@ -490,6 +490,8 @@ func (ic *ContainerEngine) ContainerCheckpoint(ctx context.Context, namesOrIds [
 		TargetFile:     options.Export,
 		IgnoreRootfs:   options.IgnoreRootFS,
 		KeepRunning:    options.LeaveRunning,
+		PreCheckPoint:  options.PreCheckPoint,
+		WithPrevious:   options.WithPrevious,
 	}
 
 	if options.All {
@@ -529,6 +531,7 @@ func (ic *ContainerEngine) ContainerRestore(ctx context.Context, namesOrIds []st
 		IgnoreRootfs:    options.IgnoreRootFS,
 		IgnoreStaticIP:  options.IgnoreStaticIP,
 		IgnoreStaticMAC: options.IgnoreStaticMAC,
+		ImportPrevious:  options.ImportPrevious,
 	}
 
 	filterFuncs := []libpod.ContainerFilter{
